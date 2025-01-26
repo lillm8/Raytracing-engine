@@ -264,7 +264,7 @@ def main():
     r = 0.2
 
     pygame.init()
-    pygame.display.set_caption("Ett klot upplyst med Ray-tracing")
+    pygame.display.set_caption("Raytracing engine")
     screen = pygame.display.set_mode((width, height))
     screen.fill((0, 0, 0))
     pygame.display.flip()
@@ -284,9 +284,9 @@ def main():
     scene = Scene(camera, objects, lights, width, height)
 
     # Information om texten.
-    font = pygame.font.Font(None, int(width / 60 + height / 60))
-    text_tryck_nu = font.render("Tryck på rosa klotet i mitten för att placera ljuskällan. Tryck på Esc för att avsluta.", True,(150, 150, 150))
-    text_tryck_inte = font.render("Vänta medans bilden laddas in...", True, (150, 150, 150))
+    font = pygame.font.Font(None, int(width / 70 + height / 60))
+    text_tryck_nu = font.render("Click anywhere on the centersphere to project the lightsource. Click 'esc' to close program.", True,(150, 150, 150))
+    text_tryck_inte = font.render("Wait for the programme to load ...", True, (150, 150, 150))
     text_loda = text_tryck_nu.get_rect(center=(33 * width // 80, height // 6))
 
     # Tryckområdet
@@ -390,7 +390,7 @@ def main():
             lx, ly, lz, kor = pause_happening(text_tryck_nu, text_loda, cirkelns_centrum, r)
 
             screen.fill((0, 0, 0))
-            text_for_kor = font.render('Du track på koordinaten ' + str(kor) + ' på sfären.', True, (150, 150, 150))
+            text_for_kor = font.render('You clicked on coordinates ' + str(kor) + ' på sfären.', True, (150, 150, 150))
             text_loda_kor = text_for_kor.get_rect(center=(width // 2, height // 4 + width // 30 + height // 30))
             screen.blit(text_for_kor, text_loda_kor)
 
